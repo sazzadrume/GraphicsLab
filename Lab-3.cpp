@@ -67,6 +67,27 @@ glVertex2d (250, 275);
 glVertex2d (225, 225);
 glEnd();
 
+glColor3f (0.0, 0.25, 1.0);
+glBegin(GL_LINES);
+glVertex2d (450, 300);
+glVertex2d (600, 300);
+glEnd();
+glColor3f (0.0, 0.25, 1.0);
+glBegin(GL_LINES);
+glVertex2d (300, 450);
+glVertex2d (300, 600);
+glEnd();
+glColor3f (0.0, 0.25, 1.0);
+glBegin(GL_LINES);
+glVertex2d (150, 300);
+glVertex2d (0, 300);
+glEnd();
+glColor3f (0.0, 0.25, 1.0);
+glBegin(GL_LINES);
+glVertex2d (300, 150);
+glVertex2d (300, 0);
+glEnd();
+
 /* don't wait!
 * start processing buffered OpenGL routines
 */
