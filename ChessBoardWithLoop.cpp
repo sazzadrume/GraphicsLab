@@ -22,15 +22,15 @@ while(c--){
     for(int i = 0; i < 8; i++){
         if(c % 2 == 0){
             if(i % 2 == 0){
-            x = 1;
-        }
-        else{
-            x = 0;
-        }
+                x = 1;
+            }
+            else{
+                x = 0;
+            }
         }
         else{
             if(i % 2 == 0){
-                    x = 0;
+                x = 0;
             }
             else{
                 x = 1;
@@ -43,6 +43,7 @@ while(c--){
         glVertex2d(a[1], b[1]);
         glVertex2d(a[2], b[2]);
         glVertex2d(a[3], b[3]);
+
         for(int i = 0; i < 4; i++){
             a[i] += 100;
     }
