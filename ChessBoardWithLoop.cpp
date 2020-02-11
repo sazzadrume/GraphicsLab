@@ -1,64 +1,52 @@
-
 #include <GL/gl.h>
 #include <GL/glut.h>
+#include <bits/stdc++.h>
+using namespace std;
+
+double a, b, c, d;
+
+
 void display(void)
 {
-/* clear all pixels */
 glClear (GL_COLOR_BUFFER_BIT);
 /* draw white polygon (rectangle) with corners at
 * (0.25, 0.25, 0.0) and (0.75, 0.75, 0.0)
 */
-int a[4] = {0, 100, 100, 0};
-int b[4] = {0, 0, 100, 100};
-int x = 0;
-int c = 8;
+glBegin(GL_POINTS);
+glColor3f (1, .25, 1);
 
-while(c--){
-        a[0] = 0;
-        a[1] = 100;
-        a[2] = 100;
-        a[3] = 0;
 
-    for(int i = 0; i < 8; i++){
-        if(c % 2 == 0){
-            if(i % 2 == 0){
-                x = 1;
-            }
-            else{
-                x = 0;
-            }
-        }
-        else{
-            if(i % 2 == 0){
-                x = 0;
-            }
-            else{
-                x = 1;
-            }
-    }
-        glColor3f (x, x, x);
-        glBegin(GL_POLYGON);
+double x1 = a, y1 = b, x2 = c, y2 = d;
 
-        glVertex2d(a[0], b[0]);
-        glVertex2d(a[1], b[1]);
-        glVertex2d(a[2], b[2]);
-        glVertex2d(a[3], b[3]);
 
-        for(int i = 0; i < 4; i++){
-            a[i] += 100;
-    }
+double dx = y2 - y1;
+double dy = x2 - x1;
+glVertex2d(x1, y1);
 
-    glEnd();
-}
-    for(int i = 0; i < 4; i++){
-        b[i] += 100;
-    }
+double m = dy/dx;
+
+
+cout << setprecision(10) << fixed << m << "\n";
+
+double steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
+
+double increment_x = dx / (float) steps;
+double increment_y = dy / (float) steps;
+
+
+
+
+for(int i = 0; i < steps; i++){
+    x1 += increment_x;
+    y1 += increment_y;
+    cout << x1 << " "  << y1 << "\n";
+    glVertex2d(abs(x1), abs(y1));
 }
 
-/* don't wait!
-* start processing buffered OpenGL routines
-*/
-glFlush ();
+
+glEnd();
+glFlush();
+
 }
 void init (void)
 {
@@ -67,7 +55,7 @@ glClearColor (0.0, 0.0, 0.0, 0.0);
 /* initialize viewing values */
 glMatrixMode(GL_PROJECTION);
 glLoadIdentity();
-gluOrtho2D(0, 800, 0, 800);
+gluOrtho2D(0 , 640 , 0 , 600);
 }
 /*
 * Declare initial window size, position, and display mode
@@ -78,6 +66,10 @@ gluOrtho2D(0, 800, 0, 800);
 */
 int main(int argc, char** argv)
 {
+
+
+cin >> a >> b >> c >> d;
+
 glutInit(&argc, argv);
 glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
 glutInitWindowSize (500, 500);
