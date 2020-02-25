@@ -119,7 +119,7 @@ glClearColor (0.0, 0.0, 0.0, 0.0);
 /* initialize viewing values */
 glMatrixMode(GL_PROJECTION);
 glLoadIdentity();
- gluOrtho2D(0 , 640 , 0 , 480);
+ gluOrtho2D(0 , 640 , 0 , 640);
 }
 /*
 * Declare initial window size, position, and display mode
